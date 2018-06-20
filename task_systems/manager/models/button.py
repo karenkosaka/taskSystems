@@ -1,0 +1,5 @@
+#-*- coding:utf-8 -*-
+from django.db import models
+
+
+"日付ボタンが押された時に登録画面の表示"
