@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 from django.db import models
 import tkinter as tk
+from .button import create
 
 #カレンダーを作成するフレームワーク
 class mycalendar(tk.Frame):
@@ -77,9 +78,9 @@ class mycalendar(tk.Frame):
             c = i - (7 * int(i/7))
             r = int(i/7)
             try:
-                #日付が0出なかったら、ボタン作成
+                #日付が0でなかったら、ボタン作成
                 if days[r][c] != 0:
-                    self.day[i] = d_button(self.frame_calendar,text = days[r][c])
+                    self.day[i] = d_button(self.frame_calendar, text = days[r][c])
                     self.day[i].grid(column=c,row=r)
             except:
                 #日付がないiエラーの回避,breakでループを抜ける
@@ -107,7 +108,7 @@ class mycalendar(tk.Frame):
 class d_button(tk.Button):
     def __init__(self,master=None,cnf={},**kw):
         tk.Button.__init__(self,master,cnf={},**kw)
-        self.configure(font=("",14),height=2, width=4, relief="flat")
+        self.configure(font=("",14),height=2, width=4, relief="flat", command=create())
 
 #ルートフレームの定義
 root = tk.Tk()
@@ -117,9 +118,9 @@ mycal.pack()
 root.mainloop()
 
 
-        
-            
-                    
+if __name__ == "__main__":
+    mycalendar()
+    
 
     
 
